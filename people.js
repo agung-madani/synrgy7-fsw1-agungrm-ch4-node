@@ -74,9 +74,29 @@ const readFiles = () => {
             console.log('Error reading file:', err);
             return;
         }
-        const parsed = JSON.parse(data);
-        console.log(parsed);
+        const parsedData = JSON.parse(data);
+        arr = []
+        parsedData.forEach(element => {
+            arr.push(element.name)
+        });
+        console.log(arr);
     });
 };
 
-module.exports = { writeFiles, readFiles };
+const getDetails = (id) => {
+    fs.readFile('./data.txt', 'utf-8', (err, data) => {
+        if (err) {
+            console.log('Error reading file:', err);
+            return;
+        }
+        const parsedData = JSON.parse(data);
+        const details = parsedData.find(person => person.id === id);
+        if (details) {
+            console.log(details);
+        } else {
+            console.log(`No details found for ID ${id}`);
+        }
+    });
+}
+
+module.exports = { writeFiles, readFiles, getDetails };

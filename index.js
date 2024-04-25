@@ -18,7 +18,9 @@
 // console.log(data)
 
 
-const { writeFiles, readFiles } = require('./people');
+const { writeFiles, readFiles, getDetails } = require('./people');
 
-writeFiles(); // You need to pass the 'people' array here
+// writeFiles(); // You need to pass the 'people' array here
 readFiles();
+getDetails(3);
+
