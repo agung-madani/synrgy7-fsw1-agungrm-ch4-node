@@ -18,9 +18,17 @@
 // console.log(data)
 
 
-const { writeFiles, readFiles, getDetails } = require('./people');
+const { writeFiles, readFiles, getDetails, addData } = require('./people');
 
-// writeFiles(); // You need to pass the 'people' array here
+// writeFiles();
 readFiles();
 getDetails(3);
 
+const newData = {
+    id: 3,
+    name: 'John Doe',
+    username: 'johndoe',
+    email: 'john@example.com',
+};
+
+addData(newData);
